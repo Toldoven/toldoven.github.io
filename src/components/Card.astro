@@ -9,11 +9,11 @@ const { href, title, body } = Astro.props;
 ---
 
 <a href={href} target="_blank" class="no-underline text-white">
-	<div class="space-y-3 p-8 border-outline border-2 rounded-xl hover:bg-outline transition">
+	<div class="space-y-3 p-7 border-outline border-2 rounded-xl hover:bg-outline active:bg-transparent transition">
 		<h3>
 			{title}
 		</h3>
-		<div class="space-y-2">
+		<div class="space-y-1">
 			{body.split('\n').map(paragraph => <p>{paragraph}</p>)}
 		</div>
 	</div>
