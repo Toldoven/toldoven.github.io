@@ -1,0 +1,20 @@
+---
+interface Props {
+	title: string;
+	body: string;
+	href?: string;
+}
+
+const { href, title, body } = Astro.props;
+---
+
+<a href={href} target="_blank" class="no-underline text-white">
+	<div class="space-y-3 p-8 border-outline border-2 rounded-xl hover:bg-outline transition">
+		<h3>
+			{title}
+		</h3>
+		<div class="space-y-2">
+			{body.split('\n').map(paragraph => <p>{paragraph}</p>)}
+		</div>
+	</div>
+</a>

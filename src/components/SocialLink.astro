@@ -1,0 +1,14 @@
+---
+interface Props {
+	name: string;
+	href?: string;
+}
+
+const { href, name } = Astro.props;
+
+import { Icon } from 'astro-icon/components'
+---
+
+<a href={href} target="_blank" aria-label={name}>
+    <Icon name={name}/>
+</a>

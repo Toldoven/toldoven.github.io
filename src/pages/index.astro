@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import SocialLink from '@components/SocialLink.astro';
+import { getCollection } from 'astro:content';
+
+
+const projects = await getCollection('projects');
+
+---
+
+
+<Layout title="Toldoven • Personal Website">
+
+	<main class="space-y-16">
+		<div class="space-y-8">
+			<div class="flex space-x-2 text-3xl">
+				<!-- <SocialLink name="discord"/> -->
+				<SocialLink name="telegram"  href="https://t.me/toldoven"/>
+				<SocialLink name="github" href="https://github.com/toldoven"/>
+				<SocialLink name="itchio" href="https://toldoven.itch.io"/>		
+				<SocialLink name="reddit" href = "https://reddit.com/u/toldoven/"/>
+				<!-- <SocialLink name="x"/> -->
+				<!-- <SocialLink name="youtube"/> -->
+			</div>
+			<div class="space-y-4">
+				<h1>Hi, I'm Toldoven!</h1>
+				<h3>A designer and developer from Ukraine</h3>
+			</div>
+			<div class="space-y-4">
+				<p>
+					My biggest passion is game design and game development.
+					I'm also a skilled software developer, product designer, and UI/UX designer.
+					Know a thing or two about business, marketing, graphic design, sound design, writing, voice acting, and content creation.
+					Used to run Minecraft servers commercially.
+					Gradually transitioning into the indie game development scene.
+				</p>
+				<p>
+					Available for freelance gigs and mentoring.
+				</p>
+				<p>
+					Message me on <a href="https://t.me/toldoven" target="_blank">Telegram</a> or at <a href="mailto:toldoven@proton.me">toldoven@proton.me</a>
+				</p>
+			</div>
+		</div>
+		<div class="space-y-8">
+			<h1>Portfolio</h1>
+			<div class="flex flex-col space-y-5">
+				{projects.map(project => (
+					<Card {...project.data}/>
+				))}
+			</div>
+		</div>
+
+	</main>
+	
+</Layout>
