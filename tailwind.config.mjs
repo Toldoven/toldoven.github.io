@@ -4,21 +4,25 @@ export default {
 	theme: {
 		extend: {
 			fontFamily: {
-			  sans: ['Poppins', 'sans-serif'],
+			  sans: ['Inter', 'sans-serif'],
 			  mono: ['JetBrains Mono']
 			},
 			screens: {
 				'sm': '640px',
 				'md': '768px',
 				'lg': '960px',
-				'xl': '960px',
-				'2xl': '960px',
+				'xl': '1024px',
+				'2xl': '1024px',
 			},
 			colors: {
-				'black': '#171717',
-				'white': '#FFFFFF',
-				'outline': '#262626',
-				'main': '#32AEFA',
+				'brand': {
+					DEFAULT: '#0F5CB2',
+				},
+				'white': '#F9FDFE',
+				'neutral': {
+					900: '#0C151F',
+					200: '#8CB2D8',
+				},
 			},
 		},
 	},

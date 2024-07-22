@@ -8,13 +8,12 @@ interface Props {
 const { href, title, body } = Astro.props;
 ---
 
-<a href={href} target="_blank" class="no-underline text-white">
-	<div class="space-y-3 p-8 border-outline bg-black border rounded-xl hover:bg-[#1c1c1c] active:bg-black transition">
-		<h3>
-			{title}
-		</h3>
-		<div class="space-y-1">
-			{body.split('\n').map(paragraph => <p>{paragraph}</p>)}
-		</div>
+<div class="space-y-4">
+	<!-- class="space-y-4 transition bg-white p-11 text-brand rounded-2xl" -->
+	<a href={href} target="_blank" class="no-underline">
+		<h3>{title}</h3>
+	</a>
+	<div class="space-y-4">
+		{body.split('\n').map(paragraph => <p>{paragraph}</p>)}
 	</div>
-</a>
+</div>

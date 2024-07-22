@@ -13,6 +13,7 @@
     "@astrojs/check": "^0.7.0",
     "@astrojs/mdx": "^3.1.0",
     "@astrojs/tailwind": "^5.1.0",
+    "@fontsource/inter": "^5.0.19",
     "@fontsource/jetbrains-mono": "^5.0.20",
     "@fontsource/manrope": "^5.0.20",
     "@fontsource/poppins": "^5.0.14",

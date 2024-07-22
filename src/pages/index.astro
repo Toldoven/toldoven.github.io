@@ -12,42 +12,47 @@ const projects = await getCollection('projects');
 
 <Layout title="Toldoven • Portfolio">
 
-	<main class="space-y-16">
-		<div class="space-y-8">
-			<div class="flex space-x-2 text-3xl">
-				<!-- <SocialLink name="discord"/> -->
-				<SocialLink name="telegram"  href="https://t.me/toldoven"/>
-				<SocialLink name="github" href="https://github.com/toldoven"/>
-				<SocialLink name="itchio" href="https://toldoven.itch.io"/>		
-				<SocialLink name="reddit" href = "https://reddit.com/u/toldoven/"/>
-				<SocialLink name="x" href="https://x.com/toldoven"/>
-				<SocialLink name="youtube" href=""/>
-			</div>
+	<main class="space-y-24">
+		<div class="space-y-12">
 			<div class="space-y-4">
-				<h1>Hi, I'm Toldoven!</h1>
+				<h1>Hi, I'm Toldoven</h1>
 				<h3>A designer and developer from Ukraine</h3>
 			</div>
-			<div class="space-y-4">
+			<div class="space-y-8">
 				<p>
 					My biggest passion is game design and game development.
 					I'm also a skilled software developer, product designer, and UI/UX designer.
-					Know a thing or two about business, marketing, graphic design, motion design, sound design, writing, voice acting, video editing, and content creation.
+					Know a thing or two about business, marketing, graphic design, motion design, sound design, writing, voice acting and video editing
+				</p>
+				<p>
 					Used to run Minecraft servers commercially.
-					Gradually transitioning into the indie game development scene.
-				</p>
-				<p>
-					Available for freelance gigs and mentoring.
-				</p>
-				<p>
-					Message me on <a href="https://t.me/toldoven" target="_blank">Telegram</a> or at <a href="mailto:toldoven@proton.me">toldoven@proton.me</a>
+					Gradually transitioning into the indie game development scene
 				</p>
 			</div>
+			<div class="space-y-4">
+				<h3>
+					Available for freelance gigs and mentoring
+				</h3>
+				<h3>
+					Contact me on <a href="https://t.me/toldoven" target="_blank">Telegram</a> or at <a href="mailto:toldoven@proton.me">toldoven@proton.me</a>
+				</h3>
+				<h3>
+					I'm also on
+					<SocialLink name="GitHub" href="https://github.com/toldoven"/>
+					<SocialLink name="itch.io" href="https://toldoven.itch.io"/>		
+					<SocialLink name="Reddit" href = "https://reddit.com/u/toldoven/"/>
+					<SocialLink name="X" href="https://x.com/toldoven"/>
+					<SocialLink name="YouTube" href=""/>
+				</h3>
+			</div>
 		</div>
-		<div class="space-y-8">
+		<div class="space-y-12">
 			<h1>Portfolio</h1>
-			<div class="flex flex-col space-y-5">
+			<div class="flex flex-col space-y-12">
+				<hr class="border-neutral-200"/>
 				{projects.map(project => (
 					<Card {...project.data}/>
+					<hr/>
 				))}
 			</div>
 		</div>

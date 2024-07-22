@@ -5,7 +5,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-import "@fontsource/poppins";
+import "@fontsource/inter";
 ---
 
 <!doctype html>
@@ -22,8 +22,8 @@ import "@fontsource/poppins";
 
 		<title>{title}</title>
 	</head>
-	<body class="container mx-auto p-8 mt-16 mb-16 text-white">
-		<div>
+	<body class="container mx-auto text-white bg-black">
+		<div class="bg-brand p-24">
 			<slot />
 		</div>
 	</body>
@@ -37,34 +37,34 @@ import "@fontsource/poppins";
 
 @layer base {
 
-	body {
-		background-color: #121212;
-	}
-
 	p {
-		@apply text-base;
+		@apply text-xl;
 	}
 
 	* {
-		/* @apply subpixel-antialiased; */
+		@apply subpixel-antialiased;
 	}
 	 
 	h1, h2, h3, h4, h5, h6 {
 		@apply font-semibold;
 		/* font-family: "Ma", system-ui, sans-serif; */
 	}
+	
 	h1 {
-		@apply text-3xl;
+		@apply text-4xl;
 	}
 	h2 {
-		@apply text-2xl;
+		@apply text-3xl;
 	}
 	h3 {
-		@apply text-xl
+		@apply text-2xl;
+	}
+	h4 {
+		@apply text-xl;
 	}
 	
 	a {
-		@apply text-main underline
+		@apply text-neutral-200 hover:text-white transition
 	}
 }
 
