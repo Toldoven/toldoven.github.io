@@ -1,27 +1,37 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
-import SocialLink from '@components/SocialLink.astro';
-import { getCollection } from 'astro:content';
-
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCollection, type CollectionEntry } from 'astro:content';
+import MainLink from '@components/MainLink.astro';
+import { getEntries } from 'astro:content';
+import CardConatiner from '@components/CardConatiner.astro';
 
 const projects = await getCollection('projects');
+
+// const projects = await Promise.all(
+// 	projectsWithoutTags.map(async (project) => {
+// 		// project
+// 		project.data.tags = await getEntries(project.data.tags);
+// 		return project;
+// 	})
+// );
 
 ---
 
 
 <Layout title="Toldoven • Portfolio">
-
-	<main class="space-y-24">
-		<div class="space-y-12">
-			<div class="space-y-4">
+	<main class="space-y-12 lg:space-y-24 xl:space-y-24 my-0 lg:my-12 xl:my-24">
+		<div class="p-12 xl:p-20 bg-blue-600 lg:rounded-2xl xl:rounded-3xl">
+			<div class="space-y-3 xl:space-y-4 mb-8 xl:mb-12">
 				<h1>Hi, I'm Toldoven</h1>
 				<h3>A designer and developer from Ukraine</h3>
 			</div>
-			<div class="space-y-8">
+			<div class="space-y-4 xl:space-y-6 mb-8 xl:mb-16">
 				<p>
 					My biggest passion is game design and game development.
-					I'm also a skilled software developer, product designer, and UI/UX designer.
+					I'm also a skilled software developer, product designer, and UI/UX designer
+				</p>
+				<p>
 					Know a thing or two about business, marketing, graphic design, motion design, sound design, writing, voice acting and video editing
 				</p>
 				<p>
@@ -29,32 +39,32 @@ const projects = await getCollection('projects');
 					Gradually transitioning into the indie game development scene
 				</p>
 			</div>
-			<div class="space-y-4">
+			<div class="space-y-3 xl:space-y-4">
 				<h3>
 					Available for freelance gigs and mentoring
 				</h3>
 				<h3>
-					Contact me on <a href="https://t.me/toldoven" target="_blank">Telegram</a> or at <a href="mailto:toldoven@proton.me">toldoven@proton.me</a>
+					Contact me on <MainLink name="Telegram" href="https://t.me/toldoven"/> or at <MainLink name="toldoven@proton.me"/>
 				</h3>
+				
+			</div>
+			<div class="mt-8 xl:mt-12">
 				<h3>
 					I'm also on
-					<SocialLink name="GitHub" href="https://github.com/toldoven"/>
-					<SocialLink name="itch.io" href="https://toldoven.itch.io"/>		
-					<SocialLink name="Reddit" href = "https://reddit.com/u/toldoven/"/>
-					<SocialLink name="X" href="https://x.com/toldoven"/>
-					<SocialLink name="YouTube" href=""/>
+					<MainLink name="GitHub" href="https://github.com/toldoven"/>
+					<MainLink name="itch.io" href="https://toldoven.itch.io"/>		
+					<MainLink name="Reddit" href = "https://reddit.com/u/toldoven/"/>
+					<MainLink name="X" href="https://x.com/toldoven"/>
+					<MainLink name="YouTube" href=""/>
 				</h3>
 			</div>
 		</div>
-		<div class="space-y-12">
-			<h1>Portfolio</h1>
-			<div class="flex flex-col space-y-12">
-				<hr class="border-neutral-200"/>
-				{projects.map(project => (
-					<Card {...project.data}/>
-					<hr/>
-				))}
-			</div>
+
+		<div>
+			<h1 class="text-center lg:text-left mb-12 lg:mb-8 xl:mb-12">Portfolio</h1>
+			<CardConatiner>
+				{projects.map(project => <ProjectCard project={project}/>)}
+			</CardContainer>
 		</div>
 
 	</main>

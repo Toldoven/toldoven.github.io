@@ -2,3 +2,6 @@ title: "BMOD: Like with FMOD but B-tier"
 body: |-
   A simple add-on for Godot 4. Copies some of the functionality of FMOD inside of Godot
 href: https://github.com/Toldoven/bmod
+tags:
+  - godot
+  - library

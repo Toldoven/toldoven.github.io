@@ -3,3 +3,11 @@ body: |-
   Turn any image into a Jigsaw Puzzle and solve it together with friends without leaving Telegram
   Won 3rd place in the Telegram Web App Contest
 href: https://github.com/plasmoapp/jigsaw-bot
+tags: 
+  - rust
+  - godot
+  - redis
+  - telegram
+  - axum
+  - multiplayer
+

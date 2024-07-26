@@ -5,7 +5,7 @@ interface Props {
 
 const { title } = Astro.props;
 
-import "@fontsource/inter";
+import "@fontsource-variable/inter";
 ---
 
 <!doctype html>
@@ -22,10 +22,10 @@ import "@fontsource/inter";
 
 		<title>{title}</title>
 	</head>
-	<body class="container mx-auto text-white bg-black">
-		<div class="bg-brand p-24">
+	<body class="container mx-auto text-white bg-black px-0 lg:px-6 subpixel-antialiased xl:px-12">
+		<!-- <div class="bg-blue-600 p-24 mt-24"> -->
 			<slot />
-		</div>
+		<!-- </div> -->
 	</body>
 </html>
 
@@ -38,11 +38,8 @@ import "@fontsource/inter";
 @layer base {
 
 	p {
-		@apply text-xl;
-	}
-
-	* {
-		@apply subpixel-antialiased;
+		@apply text-lg xl:text-xl;
+		@apply font-medium;
 	}
 	 
 	h1, h2, h3, h4, h5, h6 {
@@ -51,21 +48,25 @@ import "@fontsource/inter";
 	}
 	
 	h1 {
-		@apply text-4xl;
+		@apply text-3xl xl:text-4xl;
 	}
 	h2 {
-		@apply text-3xl;
+		@apply text-2xl xl:text-3xl;
 	}
 	h3 {
-		@apply text-2xl;
+		@apply text-xl xl:text-2xl;
 	}
 	h4 {
 		@apply text-xl;
 	}
-	
-	a {
-		@apply text-neutral-200 hover:text-white transition
+
+	hr {
+		@apply border-blue-400;
 	}
+	
+	/* a {
+		@apply text-blue-300 hover:text-white transition
+	} */
 }
 
 </style>

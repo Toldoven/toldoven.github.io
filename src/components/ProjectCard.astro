@@ -1,0 +1,58 @@
+---
+
+import type { CollectionEntry } from 'astro:content';
+import { getEntries } from 'astro:content';
+import ExternalLinkIcon from '../components/icons/ExternalLinkIcon.astro';
+
+interface Props {
+	project: CollectionEntry<'projects'>
+}
+
+const data = Astro.props.project.data;
+
+const { href, title, body } = data;
+
+const tags = await getEntries(data.tags)
+
+const domain = (() => {
+	try {
+		if (!href) return undefined;
+		const url = new URL(href); 
+		return url.hostname
+	} catch {
+		return undefined;
+	}
+})();
+
+---
+
+
+    <div class="bg-yellow-100 text-black p-12 lg:rounded-2xl">
+		<a href={href} target="_blank" class="w-full">
+			<div>
+				<div class="flex items-center gap-2 mb-3">
+					<ExternalLinkIcon/>
+					{domain && <p class="font-semibold">{domain}</p>}
+				</div>
+				<h2>{title}</h2>
+			</div>
+		</a>
+		<div class="flex flex-col gap-y-2 xl:gap-y-3 mt-6">
+			{body.split('\n').map((paragraph) => (
+				<p>{paragraph}</p>
+			))}
+		</div>
+        {tags && tags.length > 0 && (
+            <div class="mt-8 flex gap-x-2 gap-y-3 flex-wrap">
+                {tags.map((tag) => (
+                    <a
+                        href={`/tags/${tag.id}`}
+                        class="text-xl font-semibold px-4 py-2 rounded-full border-2 border-black text-black hover:text-white hover:bg-black transition"
+                    >
+                        {tag.data.name}
+                    </a>
+                ))}
+            </div>
+        )}
+    </div>
+</a>

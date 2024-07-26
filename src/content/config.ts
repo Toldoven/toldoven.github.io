@@ -1,5 +1,3 @@
-// 1. Import utilities from `astro:content`
-import { z, defineCollection, reference, type SchemaContext } from 'astro:content';
 
 // const tags = defineCollection({
 //   type: 'data',
@@ -7,6 +5,10 @@ import { z, defineCollection, reference, type SchemaContext } from 'astro:conten
 //     name: z.string(),  
 //   })
 // })
+
+import { defineCollection } from "astro/content/runtime";
+import { z } from "astro/zod";
+import { reference } from "astro:content";
 
 
 // const projects = defineCollection({
@@ -24,11 +26,15 @@ const projects = defineCollection({
     title: z.string(),
     body: z.string(),
     href: z.string().optional(),
+    tags: z.array(reference('tags')).default([]),
   }),
 });
 
+const tags = defineCollection({
+  type: 'data',
+  schema: z.object({
+    name: z.string(),
+  })
+});
 
-// 3. Export a single `collections` object to register your collection(s)
-export const collections = {
-  'projects': projects,
-};
+export const collections = { projects ,tags };
