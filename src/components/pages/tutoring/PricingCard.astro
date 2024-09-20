@@ -1,0 +1,27 @@
+---
+import Button from '@components/Button.astro'
+import Card from '@components/Card.astro'
+
+
+interface Props {
+    price: string,
+    description: string,
+}
+
+let { price, description } = Astro.props
+
+---
+
+<div class="bg-white text-black p-12 lg:rounded-2xl">
+    <div class="flex flex-col lg:flex-row gap-6 lg:justify-between lg:items-center">
+        <div>
+            <h2 class="mb-4">{price}</h2>
+            <p>{description}</p>
+        </div>
+        <div>
+            <a target="_blank" href="https://cal.com/toldoven/introductory">
+                <Button buttonStyle="blackOnWhite">Book now</Button>
+            </a>
+        </div>
+    </div>
+</div>

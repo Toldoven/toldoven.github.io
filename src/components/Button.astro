@@ -1,0 +1,25 @@
+---
+import { match } from 'ts-pattern'
+
+
+
+interface Props {
+    buttonStyle: "primary" | "secondary" | "blackOnYellow" | "blackOnWhite" | "whiteOnPurple"
+}
+
+const { buttonStyle } = Astro.props
+
+
+let buttonStyleClass = match(buttonStyle)
+    .with("primary", () => "bg-blue-600 hover:bg-blue-700 text-white")
+    .with("secondary", () => "text-neutral-400 hover:bg-neutral-800")
+    .with("blackOnYellow", () => "bg-black hover:bg-neutral-800 text-yellow-100")
+    .with("blackOnWhite", () => "bg-black hover:bg-neutral-800 text-white")
+    .with("whiteOnPurple", () => "bg-white hover:bg-purple-100 text-white text-purple-600")
+    // .with("black-outline", () => "bg-black hover:bg-yellow-950 text-yellow-100 border-2 border-yellow-100 hover:text-black")
+    .exhaustive()
+
+
+---
+
+<button class={`font-semibold text-xl px-7 p-4 rounded-xl transition ${buttonStyleClass}`}><slot/></button>

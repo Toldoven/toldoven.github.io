@@ -1,0 +1,125 @@
+---
+import Button from "@components/Button.astro";
+import CardConatiner from "@components/CardConatiner.astro";
+import DiscordServerCard from "@components/DiscordServerCard.astro";
+import MainLink from "@components/MainLink.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import Section from "@components/Section.astro";
+import DiscordIcon from "@components/icons/DiscordIcon.astro";
+import ParagraphCard from "@components/pages/tutoring/ParagraphCard.astro";
+import PricingCard from "@components/pages/tutoring/PricingCard.astro";
+import TutoringSchedulingEmbed from "@components/pages/tutoring/TutoringSchedulingEmbed.astro";
+import { getCollection } from "astro:content";
+import Layout from "src/layouts/Layout.astro";
+
+
+const projects = await getCollection('projects');
+
+const highlightProjects = projects.filter((project) => project.data.highlight);
+
+const otherProjects = projects.length - highlightProjects.length
+
+---
+<Layout title="Toldoven's Godot Tutoring">
+
+    <main class="space-y-12 lg:space-y-24 xl:space-y-24 my-0 lg:my-12 xl:my-24">
+        <div class="text-center">
+            <div class="space-y-3 xl:space-y-6 mb-12">
+                <h1>Toldoven's Godot Tutoring</h1>
+                <h3 class="text-neutral-400">The first session is completely free
+                    <!-- <span class="bg-green-500 mx-1 px-2 rounded py-1 text-black font-extrabold underline">FREE</span> -->
+                     <!-- <span class="text-yellow-400">free</span> -->
+                    with no strings attached
+                </h3>
+            </div>
+            <div class="flex justify-center gap-4 flex-wrap">
+                <a target="_blank" href="https://cal.com/toldoven/introductory">
+                    <Button buttonStyle="primary">Book a free session</Button>
+                </a>
+                <a href="#pricing">
+                    <Button buttonStyle="secondary">Pricing</Button>
+                </a>
+            </div>
+        </div>
+        <div>
+            <iframe class="w-full aspect-video" src="https://www.youtube.com/embed/fjDXvXACIEA?si=If02NyQJWfbiZSGs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- <TutoringSchedulingEmbed/> -->
+        </div>
+        
+        <Section title="Learn my making projects you want to make" subtitle="And how I will help you with it" center={true}>
+            <CardConatiner>
+                <ParagraphCard>
+                    <p>Making projects is the best way to learn. Because making projects is fun</p>
+                    <p>Once you feel confident making a project without a tutorial — your skills will snowball massively</p>
+                    <p>The problem is — it's hard to know where to start</p>
+                    <p>As your tutor — I will not only show you where to start but also push you into that snowball that will finally allow you to build projects yourself</p>
+                    <p>I'll teach you how to divide big and scary projects into tiny bite-sized pieces that are trivial to implement  </p>
+                    <p>No more getting stuck in the tutorial hell and being scared of projects</p>
+                    <p>I will help you keep the scope realistic and avoid feature creep</p>
+                </ParagraphCard>
+            </CardConatiner>
+        </Section>
+        <Section title="About me" center={true}>
+            <div class="p-12 xl:p-20 bg-blue-600 lg:rounded-2xl xl:rounded-3xl">
+                <div class="space-y-3 xl:space-y-4 mb-8 xl:mb-12">
+                    <h1>Hi, I'm Toldoven</h1>
+                    <h3>A designer and developer from Ukraine</h3>
+                </div>
+                <div class="space-y-4 xl:space-y-6 mb-8 xl:mb-12">
+                    <p>
+                        I've been working with Godot since 2020. 
+                        I'm also a skilled software developer, product designer, and UI/UX designer
+                    </p>
+                    <p>
+                        Before getting into game development I used to run Minecraft servers commercially and developed Minecraft mods
+                    </p>
+                </div>
+                <div class="space-y-3 xl:space-y-4">
+                    <h3>If you have questions — message me on my <MainLink name="Discord Server" href="https://discord.gg/wAT7jYwvft"/></h3>
+                    <h3>Feel free to reach out anytime for any reason</h3>
+                </div>
+                <div class="mt-8 xl:mt-12">
+                    <h3><MainLink name="Learn more and see portfolio" href="/"/></h3>
+                </div>
+            </div>
+        </Section>
+        <Section title="Portfolio hightlights" center={true}>
+            <CardConatiner>
+				{highlightProjects.map(project => <ProjectCard project={project}/>)}
+			</CardConatiner>
+            <div class="mt-12 flex justify-center">
+                <a href="/#portfolio">
+                    <Button buttonStyle="secondary">See {otherProjects} more projects</Button>
+                </a>
+            </div>
+        </Section>
+        <Section title="Avoid problems early and don't get stuck">
+            <CardConatiner>
+                <ParagraphCard>
+                    <p>Without enough programming experience — you are guaranteed to write spaghetti code that will come to bite you</p>
+                    <p>I will point out problematic areas of your code, so you can fix it early and save lots of time in the future</p>
+                </ParagraphCard>
+                <ParagraphCard>
+                    <p>It sucks when there is that one silly blocker issue that prevents you from making progress for days</p>
+                    <p>I can solve these issues for you and teach you better debugging skills</p>
+                </ParagraphCard>
+            </CardConatiner>
+        </Section>
+        <!-- </Section> -->
+        <div id="pricing">
+            <Section title="Pricing" subtitle="Can be negotiable" center={true}>
+                <CardConatiner>
+                    <PricingCard price="Free" description="For the first session"></PricingCard>
+                    <PricingCard price="$28/hour" description="The usual price"></PricingCard>
+                    <PricingCard price="$24/hour" description="When paying in advance for 3 lessons or more"></PricingCard>
+                </CardConatiner>
+            </Section> 
+        </div>
+        <Section title="Book a free session" subtitle="With no strings attached" center={true}>
+            <TutoringSchedulingEmbed/>
+        </Section>
+        <Section title="Join the Discord server" center={true} subtitle="If you have questions or just want to chat">
+            <DiscordServerCard/>
+        </Section>
+    </main>
+</Layout>

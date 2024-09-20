@@ -3,6 +3,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { getEntries } from 'astro:content';
 import ExternalLinkIcon from '../components/icons/ExternalLinkIcon.astro';
+import Card from './Card.astro';
 
 interface Props {
 	project: CollectionEntry<'projects'>
@@ -27,8 +28,8 @@ const domain = (() => {
 ---
 
 
-    <div class="bg-yellow-100 text-black p-12 lg:rounded-2xl">
-		<a href={href} target="_blank" class="w-full">
+    <Card>
+		<a href={href} target="_blank" class="w-full hover:underline">
 			<div>
 				<div class="flex items-center gap-2 mb-3">
 					<ExternalLinkIcon/>
@@ -54,5 +55,4 @@ const domain = (() => {
                 ))}
             </div>
         )}
-    </div>
-</a>
+    </Card>

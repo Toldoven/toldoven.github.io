@@ -5,6 +5,8 @@ import { getCollection, type CollectionEntry } from 'astro:content';
 import MainLink from '@components/MainLink.astro';
 import { getEntries } from 'astro:content';
 import CardConatiner from '@components/CardConatiner.astro';
+import CardSection from '@components/Section.astro';
+import Section from '@components/Section.astro';
 
 const projects = await getCollection('projects');
 
@@ -19,7 +21,7 @@ const projects = await getCollection('projects');
 ---
 
 
-<Layout title="Toldoven • Portfolio">
+<Layout title="Portfolio">
 	<main class="space-y-12 lg:space-y-24 xl:space-y-24 my-0 lg:my-12 xl:my-24">
 		<div class="p-12 xl:p-20 bg-blue-600 lg:rounded-2xl xl:rounded-3xl">
 			<div class="space-y-3 xl:space-y-4 mb-8 xl:mb-12">
@@ -61,11 +63,12 @@ const projects = await getCollection('projects');
 			</div>
 		</div>
 
-		<div>
-			<h1 class="text-center lg:text-left mb-12 lg:mb-8 xl:mb-12">Portfolio</h1>
-			<CardConatiner>
-				{projects.map(project => <ProjectCard project={project}/>)}
-			</CardContainer>
+		<div id="portfolio">
+			<Section title="Portfolio">			
+				<CardConatiner>
+					{projects.map(project => <ProjectCard project={project}/>)}
+				</CardConatiner>
+			</Section>
 		</div>
 
 	</main>
