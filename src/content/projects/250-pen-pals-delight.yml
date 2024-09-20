@@ -1,0 +1,11 @@
+title: "Pen Pals' Delight"
+body: |-
+  An online pen pal simulator. Make friends, exchange letters and packages. Create and share custom items. Decorate your room. Write, share and collect books
+  My current project in very early development
+href: https://penpalsdelight.com
+tags:
+  - godot
+  - multiplayer
+  - csharp
+  - fsharp
+highlight: true

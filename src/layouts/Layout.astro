@@ -5,6 +5,7 @@ interface Props {
 
 const { title } = Astro.props;
 
+import Button from "@components/Button.astro";
 import "@fontsource-variable/inter";
 ---
 
@@ -23,6 +24,11 @@ import "@fontsource-variable/inter";
 		<title>{title} • Toldoven</title>
 	</head>
 	<body class="container mx-auto text-white bg-black px-0 lg:px-6 subpixel-antialiased xl:px-12">
+		<div class="w-full flex items-center justify-center my-8 gap-4">
+			
+			<a href="/"><Button buttonStyle="secondary">Portfolio</Button></a>
+			<a href="/tutoring"><Button buttonStyle="secondary">Tutoring</Button></a>
+		</div>
 		<!-- <div class="bg-blue-600 p-24 mt-24"> -->
 			<slot />
 		<!-- </div> -->
