@@ -15,10 +15,10 @@ const centerClass = center ? "" : " lg:text-left"
 ---
 
 <div>
-    <div class={`mb-12 lg:mb-8 xl:mt-24 xl:mb-24 text-center ${centerClass}`}>
-        <h1 class="text-center">{title}</h1>
+    <div class={`my-12 px-8 lg:my-16 xl:my-24 text-center ${centerClass}`}>
+        <h1 class="text-2xl lg:text-3xl xl:text-4xl text-center">{title}</h1>
         {
-            subtitle && <h3 class="mt-6 text-neutral-400">{subtitle}</h3>
+            subtitle && <h3 class="text-xl mt-4 xl:text-2xl lg:mt-6 xl:mt-7 text-neutral-400">{subtitle}</h3>
         }
     </div>
     <slot />
