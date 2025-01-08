@@ -1,0 +1,8 @@
+title: "Advent of Code Kotlin Notebook Framework"
+body: |-
+  Solve Advent of Code interactively, without leaving your IDE, with Kotlin Notebook!
+href: https://github.com/Toldoven/aoc-kotlin-notebook
+tags:
+  - kotlin
+  - library
+  - aoc
