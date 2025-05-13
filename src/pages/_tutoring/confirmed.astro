@@ -1,17 +1,17 @@
 ---
 import DiscordServerCard from "@components/DiscordServerCard.astro";
-import Discord from "@components/icons/DiscordIcon.astro";
 import Section from "@components/Section.astro";
 import Layout from "src/layouts/Layout.astro";
-
-
 ---
 
-
 <Layout title="Thanks for signing up!">
-    <main class="space-y-12 lg:space-y-24 xl:space-y-24 my-0 lg:my-12 xl:my-24">
-        <Section subtitle="Join the Discord server so I can contact you" title="Booking confirmed" center={true}>
-            <DiscordServerCard/>
-        </Section>
-    </main>
+  <main class="space-y-12 lg:space-y-24 xl:space-y-24 my-0 lg:my-12 xl:my-24">
+    <Section
+      subtitle="Join the Discord server so I can contact you"
+      title="Booking confirmed"
+      center={true}
+    >
+      <DiscordServerCard />
+    </Section>
+  </main>
 </Layout>

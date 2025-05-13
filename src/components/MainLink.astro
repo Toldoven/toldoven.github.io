@@ -1,17 +1,20 @@
 ---
-
 interface Props {
-	name: string;
-	href?: string;
-	blank?: Boolean;
+  name: string;
+  href?: string;
+  blank?: Boolean;
 }
 
 const { href, name, blank = true } = Astro.props;
 
-const target = blank ? "_blank" : null
-
+const target = blank ? "_blank" : null;
 ---
 
 <span>
-	<a {href} {target} class="text-blue-300 hover:text-white transition" aria-label={name}>{name}</a>
+  <a
+    {href}
+    {target}
+    class="text-blue-300 hover:text-white transition"
+    aria-label={name}>{name}</a
+  >
 </span>

@@ -1,39 +1,39 @@
 ---
-import CardConatiner from '@components/CardConatiner.astro';
-import Nav from '@components/Nav.astro';
-import ProjectCard from '@components/ProjectCard.astro';
-import { getCollection, getEntries } from 'astro:content';
-import Layout from 'src/layouts/Layout.astro';
-
-
+import CardConatiner from "@components/CardConatiner.astro";
+import Nav from "@components/Nav.astro";
+import ProjectCard from "@components/ProjectCard.astro";
+import { getCollection, getEntries } from "astro:content";
+import Layout from "src/layouts/Layout.astro";
 
 export async function getStaticPaths() {
-   
-    const tagEntries = await getCollection('tags');
+  const tagEntries = await getCollection("tags");
 
-    return tagEntries.map(entry => ({
-        params: { slug: entry.id }, props: { entry },
-    }));
+  return tagEntries.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }));
 }
 
 const { entry } = Astro.props;
 
-const projects = await getCollection('projects', (project) => 
-    project.data.tags.some((tag: any) => tag.id === entry.id)
+const projects = await getCollection("projects", (project) =>
+  project.data.tags.some((tag: any) => tag.id === entry.id)
 );
-
 ---
 
 <Layout title={`Toldoven • ${entry.data.name} Projects`}>
-    <main class="mt-12 lg:my-16 xl:my-24">
-        <div class="flex justify-center lg:justify-normal">
-            <Nav/>
-        </div>
-        <div class="mb-12 mt-6">
-            <h2 class="text-center lg:text-left">There are {projects.length} {entry.data.name} projects</h2>
-        </div>
-        <CardConatiner>
-            {projects.map(project => <ProjectCard project={project}/>)}
-        </CardContainer>
-    </main>
+  <main class="mt-12 lg:my-16 xl:my-24">
+    <div class="flex justify-center lg:justify-normal">
+      <Nav />
+    </div>
+    <div class="mb-12 mt-6">
+      <h2 class="text-center lg:text-left">
+        There are {projects.length}
+        {entry.data.name} projects
+      </h2>
+    </div>
+    <CardConatiner>
+      {projects.map((project) => <ProjectCard project={project} />)}
+    </CardConatiner>
+  </main>
 </Layout>

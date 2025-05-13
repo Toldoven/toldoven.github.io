@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -11,68 +11,72 @@ import "@fontsource-variable/inter";
 
 <!doctype html>
 <html lang="en" class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="A designer and developer from Ukraine" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="manifest" href="/site.webmanifest">
-		<meta name="generator" content={Astro.generator} />
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="A designer and developer from Ukraine" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
 
-		<title>{title} • Toldoven</title>
-	</head>
-	<body class="container mx-auto text-white bg-black px-0 lg:px-6 subpixel-antialiased xl:px-12">
-		<!-- <div class="w-full flex items-center justify-center my-4 lg:my-6 xl:my-8 gap-4">
+    <title>{title} • Toldoven</title>
+  </head>
+  <body
+    class="container mx-auto text-white bg-black px-0 lg:px-6 subpixel-antialiased xl:px-12"
+  >
+    <!-- <div class="w-full flex items-center justify-center my-4 lg:my-6 xl:my-8 gap-4">
 			<a href="/"><Button buttonStyle="secondary">Portfolio</Button></a>
 			<a href="/tutoring"><Button buttonStyle="secondary">Tutoring</Button></a>
 		</div> -->
-		<!-- <div class="bg-blue-600 p-24 mt-24"> -->
-			<slot />
-		<!-- </div> -->
-	</body>
+    <!-- <div class="bg-blue-600 p-24 mt-24"> -->
+    <slot />
+    <!-- </div> -->
+  </body>
 </html>
 
 <style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+  @layer base {
+    p {
+      @apply text-lg xl:text-xl;
+      @apply font-medium;
+    }
 
-@layer base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-semibold;
+      /* font-family: "Ma", system-ui, sans-serif; */
+    }
 
-	p {
-		@apply text-lg xl:text-xl;
-		@apply font-medium;
-	}
-	 
-	h1, h2, h3, h4, h5, h6 {
-		@apply font-semibold;
-		/* font-family: "Ma", system-ui, sans-serif; */
-	}
-	
-	h1 {
-		@apply text-3xl xl:text-4xl;
-	}
-	h2 {
-		@apply text-2xl xl:text-3xl;
-	}
-	h3 {
-		@apply text-xl xl:text-2xl;
-	}
-	h4 {
-		@apply text-lg xl:text-xl;
-	}
+    h1 {
+      @apply text-3xl xl:text-4xl;
+    }
+    h2 {
+      @apply text-2xl xl:text-3xl;
+    }
+    h3 {
+      @apply text-xl xl:text-2xl;
+    }
+    h4 {
+      @apply text-lg xl:text-xl;
+    }
 
-	hr {
-		@apply border-blue-400;
-	}
-	
-	/* a {
+    hr {
+      @apply border-blue-400;
+    }
+
+    /* a {
 		@apply text-blue-300 hover:text-white transition
 	} */
-}
-
+  }
 </style>
